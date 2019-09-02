@@ -1,5 +1,5 @@
-package com.jaccard.functions;
-import com.jaccard.DataTypes.Set;
+package com.jaccard.main;
+import com.jaccard.DataTypes.JaccardSet;
 
 public class Jaccard extends Set{
 	

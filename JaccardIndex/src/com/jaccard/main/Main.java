@@ -1,16 +1,17 @@
 package com.jaccard.main;
-import com.jaccard.DataTypes.Set;
-import com.jaccard.functions.Jaccard;
+import JaccardSet;
+import Jaccard;
+
 public class Main {
 	
 	public static void main(String[] args) {
 		
-		Set set = new Set();
-		set.setStringList("teste");
-		float trash = Jaccard.fJaccardSimilatityValue(21, 32);
-		System.out.print(trash);
-		System.out.print(set.getCharacterInStringI(0, 1));
+		JaccardSet myset;
+		myset = new JaccardSet();
+
+		myset.add("value");
 		
+		myset.toStringSetList(0);
 		
 	}
 
