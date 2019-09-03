@@ -1,7 +1,7 @@
 package com.jaccard.main;
-import com.jaccard.DataTypes.JaccardSet;
+import  com.jaccard.*;
 
-public class Jaccard extends Set{
+public class Jaccard extends JaccardSet{
 	
 	public Jaccard(){
 		super();
@@ -13,19 +13,6 @@ public class Jaccard extends Set{
 	private float maxTrashHolderValue;
 	private float minTrashHolderValue;
 	private float trashHolder;
-	
-	
-	
-	public float fJaccardSimilatityValue(char firstCharacter, char secondCharacter) {
-		float similarityValue = 0;
-		int sizeOfStringA = this.getCountRefsOnValue(firstCharacter);
-		int sizeOfStringB = this.getCountRefsOnValue(secondCharacter);
-		
-		if( sizeOfStringA *  sizeOfStringB > 0 ) {
-			similarityValue = (float)sizeOfStringA/(float)sizeOfStringB;
-		}
-		return similarityValue;
-	}
 	
 	
 	public void setTrashHolder(float d) {

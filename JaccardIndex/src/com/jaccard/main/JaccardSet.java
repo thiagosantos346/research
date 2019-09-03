@@ -2,8 +2,6 @@ package com.jaccard.main;
 //import java.lang.ArrayIndexOutOfBoundsException;
 import java.util.ArrayList;
 
-import sun.security.util.Length;
-
 
 public class JaccardSet {
 	
@@ -44,42 +42,51 @@ public class JaccardSet {
 
 
 		char  charactere;
-		ArraList<Integer> refs_word;
+		ArrayList<Integer> refs_word;
 
+	}
+
+	public int sizeOfDic(){
+		return this.dic.size()+1;
 	}
 
 	public int findIntoDic(char value){
 		
-		for(i = 0; i < this.dic.size(); i++){
+		for(int i = 0; i < this.dic.size(); ++i){
 			
-			if( this.dic.get(i).character == value){
+			if( this.dic.get(i).charactere == value){
 				return i;
 			}
-
-			return -1;
-		
+	
 		}
+
+		return -1;
 
 	}
 
 	private void addIntoDic(){
-		
-		for(i = 0; i < this.set.size(); i++){
-		
-			for(j = 0; i < Length( this.get(i) ) ; i++){
-				
-				char cacaterere = this.get(i, j);
-				int existe = this.findIntoDic(cacaterere);
-				if( existe == -1 ){
-					this.dic.add( new Dicionario(value, i ));
-				}else{
 
-					this.dic.get(existe).refs_word.add(cacaterere);
+		for(int i = 0; i < this.set.size() ; i++){
+			
+			for(int j = 0; j < this.set.get(i).value.length(); j++ ){
+				char cacaterere;
+				cacaterere = this.getChar(i, j);
+
+				int existe = this.findIntoDic(cacaterere);
+				
+				if( existe == -1 ){
+					System.out.println("Já Existe");
+					this.dic.add( new Dicionario(cacaterere  , i ));
+				
+				}else{
+					System.out.println("Já Existe");
+					this.dic.get(existe).refs_word.add(i);
 
 				}
 
-
 			}
+
+			
 		
 		}
 
@@ -107,17 +114,17 @@ public class JaccardSet {
 	}
 
 	public String get(int indexString){
-		return this.set.get(indexString);
+		return this.set.get(indexString).value;
 	}
 
-	public char get(int indexString, int indexCharactere){
-		String word = this.set.get(index);
+	public char getChar(int indexString, int indexCharactere){
+		String word = this.set.get(indexString).value.toString();
 		return word.charAt(indexCharactere);
 	}
 
 	public void toStringSetList(int index){
 
-		System.out.println(this.set.get(index).value+" - -- - "+this.set.get(index).refKey);
+		System.out.println(this.set.get(index).value+" : "+this.set.get(index).refKey);
 
 	}
 	

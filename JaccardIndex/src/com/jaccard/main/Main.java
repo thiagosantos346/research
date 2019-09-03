@@ -1,6 +1,5 @@
 package com.jaccard.main;
-import JaccardSet;
-import Jaccard;
+
 
 public class Main {
 	
@@ -10,7 +9,11 @@ public class Main {
 		myset = new JaccardSet();
 
 		myset.add("value");
-		
+		myset.add("value");
+		myset.add("thiago");
+		myset.add("ds");
+		System.out.println(myset.sizeOfDic());
+		System.out.println(myset.getChar(0, 0));
 		myset.toStringSetList(0);
 		
 	}
