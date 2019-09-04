@@ -8,12 +8,13 @@ public class Main {
 		JaccardSet myset;
 		myset = new JaccardSet();
 
-		myset.add("value");
-		myset.add("value");
-		myset.add("thiago");
-		myset.add("ds");
+		myset.add("abcd");
+		myset.add("abef");
+		myset.add("abfg");
+		myset.add("cdfg");
 		System.out.println(myset.sizeOfDic());
-		System.out.println(myset.getChar(0, 0));
+		System.out.println(  myset.getCountRef(2));
+		System.out.println(  myset.getCountRef(1));
 		myset.toStringSetList(0);
 		
 	}
