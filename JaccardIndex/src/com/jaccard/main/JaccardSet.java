@@ -6,8 +6,8 @@ import java.util.ArrayList;
 public class JaccardSet {
 	
 	private int size;
-	private ArrayList<SetItem> set;
-	private ArrayList<Dicionario> dic;
+	protected ArrayList<SetItem> set;
+	protected ArrayList<Dicionario> dic;
 	
 	public JaccardSet(){
 		this.size = 0;
@@ -15,7 +15,7 @@ public class JaccardSet {
 		this.dic = new ArrayList<Dicionario>();
 	}
 	
-	private class SetItem{
+	protected class SetItem{
 		
 		public SetItem() {}
 		
@@ -28,7 +28,7 @@ public class JaccardSet {
 		int refKey;
 	}
 
-	private class Dicionario{
+	protected class Dicionario{
 
 		public Dicionario(){}
 
@@ -61,11 +61,11 @@ public class JaccardSet {
 			int existe = this.findIntoDic(cacaterere);
 			
 			if( existe == -1 ){
-				System.out.println("Novo! ");
+				//System.out.println("Novo! ");
 				this.dic.add( new Dicionario(cacaterere  , sizeofSet));
 			
 			}else{
-				System.out.println("Já Existe");
+				//System.out.println("Já Existe");
 				this.dic.get(existe).refs_word.add(sizeofSet);
 
 			}
@@ -114,7 +114,7 @@ public class JaccardSet {
 
 	}
 
-	public int getCountRef(int r1, int r2){
+	public int getCountRef(int refKey){
 		int count = 0;
 		for (int i = 0; i < this.dic.size();i++) {
 			for (int j = 0; j < this.dic.get(i).refs_word.size() ; j ++ ){
@@ -129,8 +129,8 @@ public class JaccardSet {
 
 	}
 
-	public String get(int indexString){
-		return this.set.get(indexString).value;
+	public String get(int index){
+		return this.set.get(index).value;
 	}
 
 	public int getSizeOfAllWordsInSet(){

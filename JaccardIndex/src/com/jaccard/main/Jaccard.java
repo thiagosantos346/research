@@ -14,6 +14,36 @@ public class Jaccard extends JaccardSet{
 	private float minTrashHolderValue;
 	private float trashHolder;
 	
+	public int UnionSize(int setItemIndexA, int setItemIndexB){
+
+		int sum = 0;
+
+		for(int i = 0; i < this.set.get(setItemIndexA).value.length(); i++){
+			if( ! (this.getChar(setItemIndexA, i) == this.getChar(setItemIndexB, i))){
+				sum++;
+			}
+		}
+		
+		sum+= this.set.get(setItemIndexA).value.length();
+
+		return sum;
+	}
+
+	public float jaccardValue(int setA, int setB){
+		return (float)this.intersectionSize(setA, setB) / (float)this.UnionSize(setA, setB);
+	}
+
+	public int intersectionSize(int setItemIndexA, int setItemIndexB){
+		int sum = 0;
+		
+		for(int i = 0; i < this.set.get(setItemIndexA).value.length(); i++){
+			if( this.getChar(setItemIndexA, i) == this.getChar(setItemIndexB, i)){
+				sum++;
+			}
+		}
+
+		return sum;
+	}
 	
 	public void setTrashHolder(float d) {
 		if(d >= this.getMaxTrashHolderValue() 
