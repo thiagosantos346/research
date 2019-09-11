@@ -146,8 +146,19 @@ public class JaccardSet {
 	}
 
 	public char getChar(int indexString, int indexCharactere){
-		String word = this.set.get(indexString).value.toString();
-		return word.charAt(indexCharactere);
+
+		if(  indexString < this.set.size()){
+			String word = this.set.get(indexString).value.toString();
+		
+			if( indexCharactere < word.length()  ){
+				char charactere = word.charAt(indexCharactere);
+				return charactere;
+			}
+			
+			return '\0';
+		}
+			
+		return '\0';
 	}
 
 	public void toStringSetList(int index){

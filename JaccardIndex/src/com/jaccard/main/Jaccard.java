@@ -36,7 +36,9 @@ public class Jaccard extends JaccardSet{
 	public int intersectionSize(int setItemIndexA, int setItemIndexB){
 		int sum = 0;
 		
-		for(int i = 0; i < this.set.get(setItemIndexA).value.length(); i++){
+		for(int i = 0; i < this.set.get(setItemIndexA).value.length()-1; i++){
+			
+			
 			if( this.getChar(setItemIndexA, i) == this.getChar(setItemIndexB, i)){
 				sum++;
 			}
