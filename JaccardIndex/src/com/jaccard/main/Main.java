@@ -6,16 +6,16 @@ import java.util.*;
 
 public class Main {
 
-	private static Jaccard myset = new Jaccard();;
+	private static Jaccard myset = new Jaccard();
 	
 	public static void showAllSimilarity(float limite){
-		Float  res;
+		double  res;
 		
 		for(int i = 0; i < myset.set.size()-1; i++ ){
 			for(int j = 0; j < myset.set.size()-1; j++ ){
 				if(j != i){
 					res = myset.jaccardValue(i,j);
-					if( res > limite){
+					if( res > limite & res < 1.0){
 						System.out.println( "Similaridade : "+res );
 						System.out.println( "["+i+"]"+myset.set.get(i).value+" : ["+j+"]"+myset.set.get(j).value+"\n" );
 					}
@@ -52,7 +52,7 @@ public class Main {
 
 				for(int i = 0; i < strSplited.length - 1; ++i ){
 					strSplited[i] = cleanUpString(strSplited[i]);
-					myset.add(strSplited[i]);
+					myset.add(strSplited[i].toLowerCase());
 				}
 					
 			
@@ -60,13 +60,15 @@ public class Main {
 			
 		
 		}while(str != null);
+
+		buffer.close();
 		
 	}
 	
 	public static void main(String[] args) throws IOException {
 		
 		fileReader("/home/silvathiago/git/research/JaccardIndex/src/com/jaccard/main/wordlist.txt");
-		showAllSimilarity((float)0.4);
+		showAllSimilarity((float)0.8);
 
 	}
 

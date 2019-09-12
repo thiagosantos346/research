@@ -5,14 +5,14 @@ public class Jaccard extends JaccardSet{
 	
 	public Jaccard(){
 		super();
-		this.setTrashHolder((float)0.0);
+		this.setTrashHolder((double)0.0);
 		this.setWindowSize(1);
 	}
 	
 	private int   windowSize;
-	private float maxTrashHolderValue;
-	private float minTrashHolderValue;
-	private float trashHolder;
+	private double maxTrashHolderValue;
+	private double minTrashHolderValue;
+	private double trashHolder;
 	
 	public int UnionSize(int setItemIndexA, int setItemIndexB){
 
@@ -29,14 +29,23 @@ public class Jaccard extends JaccardSet{
 		return sum;
 	}
 
-	public float jaccardValue(int setA, int setB){
-		return (float)this.intersectionSize(setA, setB) / (float)this.UnionSize(setA, setB);
+	public double jaccardValue(int setA, int setB){
+		double value ;
+		int sizeSetA = this.set.get(setA).value.length();
+		int sizeSetB = this.set.get(setB).value.length();
+		double intersectionSize =  (double)this.intersectionSize(setA, setB);
+
+		int sumOfSets = sizeSetA + sizeSetB;
+		
+		value = intersectionSize / ((double)sumOfSets - intersectionSize) ;
+		
+		return value;
 	}
 
 	public int intersectionSize(int setItemIndexA, int setItemIndexB){
 		int sum = 0;
 		
-		for(int i = 0; i < this.set.get(setItemIndexA).value.length()-1; i++){
+		for(int i = 0; i < this.set.get(setItemIndexA).value.length(); i++){
 			
 			
 			if( this.getChar(setItemIndexA, i) == this.getChar(setItemIndexB, i)){
@@ -46,8 +55,8 @@ public class Jaccard extends JaccardSet{
 
 		return sum;
 	}
-	
-	public void setTrashHolder(float d) {
+
+	public void setTrashHolder(double d) {
 		if(d >= this.getMaxTrashHolderValue() 
 		   && d <= this.getMinTrashHolderValue()) {
 			this.trashHolder =  d;
@@ -56,22 +65,23 @@ public class Jaccard extends JaccardSet{
 	}
 
 
-	public float getMaxTrashHolderValue() {
+
+	public double getMaxTrashHolderValue() {
 		return maxTrashHolderValue;
 	}
 
 
-	public void setMaxTrashHolderValue(float maxTrashHolderValue) {
+	public void setMaxTrashHolderValue(double maxTrashHolderValue) {
 		this.maxTrashHolderValue = maxTrashHolderValue;
 	}
 
 
-	public float getMinTrashHolderValue() {
+	public double getMinTrashHolderValue() {
 		return minTrashHolderValue;
 	}
 
 
-	public void setMinTrashHolderValue(float minTrashHolderValue) {
+	public void setMinTrashHolderValue(double minTrashHolderValue) {
 		this.minTrashHolderValue = minTrashHolderValue;
 	}
 	
@@ -85,7 +95,7 @@ public class Jaccard extends JaccardSet{
 	}
 
 
-	public float getTrashHolder() {
+	public double getTrashHolder() {
 		return trashHolder;
 	}
 

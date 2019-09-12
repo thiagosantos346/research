@@ -1,18 +1,18 @@
 package com.jaccard.main;
 //import java.lang.ArrayIndexOutOfBoundsException;
 import java.util.ArrayList;
-
+import java.util.Set;
 
 public class JaccardSet {
 	
 	private int size;
 	protected ArrayList<SetItem> set;
-	protected ArrayList<Dicionario> dic;
+	protected ArrayList<ListaInvertida> dic;
 	
 	public JaccardSet(){
 		this.size = 0;
 		this.set = new ArrayList<SetItem>();
-		this.dic = new ArrayList<Dicionario>();
+		this.dic = new ArrayList<ListaInvertida>();
 	}
 	
 	protected class SetItem{
@@ -28,11 +28,11 @@ public class JaccardSet {
 		int refKey;
 	}
 
-	protected class Dicionario{
+	protected class ListaInvertida{
 
-		public Dicionario(){}
+		public ListaInvertida(){}
 
-		public Dicionario(char value, Integer ref){
+		public ListaInvertida(char value, Integer ref){
 			this.refs_word = new ArrayList<Integer>();
 			this.charactere = value;
 
@@ -62,7 +62,7 @@ public class JaccardSet {
 			
 			if( existe == -1 ){
 				//System.out.println("Novo! ");
-				this.dic.add( new Dicionario(cacaterere  , sizeofSet));
+				this.dic.add( new ListaInvertida(cacaterere  , sizeofSet));
 			
 			}else{
 				//System.out.println("Já Existe");
