@@ -12,15 +12,15 @@ class SetIDF {
     }
     public class TypeIDF  {
         TypeIDF(){
-            this.references = new ArrayList<>();
+            this.references = new HashSet<>();
         }
         TypeIDF(char key, int reference){
-            this.references = new ArrayList<>();
+            this.references = new HashSet<>();
             this.key = key;
             references.add(reference);
         }
         char key;
-        ArrayList<Integer> references;
+        Set<Integer> references;
     }
     
     public void add(char value, int reference, Map tempMap){

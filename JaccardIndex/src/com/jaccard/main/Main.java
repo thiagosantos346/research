@@ -5,7 +5,7 @@ import java.io.*;
 
 public class Main {
 	
-	public static WordList myset = new WordList();
+	public static WordList myset = new WordList(0.1);
 	
 	public static void fileReader(String fileName) throws IOException {
 		InputStream inStream = new FileInputStream(fileName);
@@ -15,9 +15,10 @@ public class Main {
 
 		do{
 			str = buffer.readLine();
+
 			if(str !=  null){
 				String[] strSplited = str.split(" ");
-				for(int i = 0; i < strSplited.length - 1; ++i ){
+				for(int i = 0; i < strSplited.length; ++i ){
 					myset.add(strSplited[i]);
 				}
 			}
@@ -28,7 +29,7 @@ public class Main {
 	
 	public static void main(String[] args) throws IOException {
 		
-		fileReader("/home/thiago/workspace/research/research/JaccardIndex/src/com/jaccard/main/wordlist.txt");
+		fileReader("src/com/jaccard/main/wordlist.txt");
 
 	}
 
