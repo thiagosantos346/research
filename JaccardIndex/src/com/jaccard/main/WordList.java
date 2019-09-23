@@ -20,7 +20,7 @@ class WordList {
         }
         ArrayList<TypeMap> tmap = map.getMap();
         for (TypeMap var : tmap ) {
-
+            System.out.println( words.get( var.reference));
            System.out.println( makeSimlarityCalc(value.length() , this.words.get( var.reference).length() , var.count));
             
         }
@@ -30,6 +30,6 @@ class WordList {
     }
 
     public double makeSimlarityCalc(int sizeOfFirstWord, int sizeOfSecondWord, int sizeOfIntersection){
-        return (sizeOfIntersection)/( (sizeOfFirstWord+sizeOfIntersection) - sizeOfIntersection );
+        return (double)(sizeOfIntersection)/( (sizeOfFirstWord+sizeOfIntersection) - sizeOfIntersection );
     }
 }

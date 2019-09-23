@@ -21,13 +21,14 @@ public class Main {
 					myset.add(strSplited[i]);
 				}
 			}
+			
 		}while(str != null);
 		buffer.close();
 	}
 	
 	public static void main(String[] args) throws IOException {
 		
-		fileReader("/home/silvathiago/git/research/JaccardIndex/src/com/jaccard/main/wordlist.txt");
+		fileReader("/home/thiago/workspace/research/research/JaccardIndex/src/com/jaccard/main/wordlist.txt");
 
 	}
 

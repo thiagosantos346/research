@@ -22,6 +22,7 @@ class SetIDF {
         char key;
         ArrayList<Integer> references;
     }
+    
     public void add(char value, int reference, Map tempMap){
         boolean exists = false;
         for (TypeIDF var : values) {
