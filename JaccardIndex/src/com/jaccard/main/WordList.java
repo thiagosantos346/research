@@ -1,7 +1,7 @@
 package com.jaccard.main;
+
 import java.util.ArrayList;
 
-import com.jaccard.main.Map.TypeMap;
 class WordList {
     private ArrayList<String> words;
     private Map map = new Map();
@@ -19,6 +19,7 @@ class WordList {
 
         //Adicionado a plavara completa na lista de referências;
         words.add(value);
+        //System.out.println("Value contains : "+value);
         //O Tamanho do array Words - 1 equivale a referência da palavra;
         int reference = words.size()-1;
         //Percorrendo todo o array de Char's criados anteriormente;
@@ -29,7 +30,8 @@ class WordList {
                 //o caracter;
                 //a referências do caractere;
                 //Um Tipo Map, que serve para armazernar o valor da intersecção entre outras palavaras;
-                idf.add(  var.charAt(0) , reference , map );
+                //System.out.println("var contains :"+var);
+                idf.add( var , reference , map );
             }
         }
 
@@ -48,8 +50,7 @@ class WordList {
         map = new Map();
 
     }
-    //typesetting
-    // industry.
+    
     public double makeSimlarityCalc(int sizeOfFirstWord, int sizeOfSecondWord, int sizeOfIntersection){
         return (double)(sizeOfIntersection)/( (sizeOfFirstWord+sizeOfIntersection) - sizeOfIntersection );
     }

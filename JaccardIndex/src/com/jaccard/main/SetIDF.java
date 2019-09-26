@@ -1,5 +1,4 @@
 package com.jaccard.main;
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -10,32 +9,37 @@ class SetIDF {
     public SetIDF(){
         this.values = new HashSet<TypeIDF>();
     }
+
     public class TypeIDF  {
         TypeIDF(){
             this.references = new HashSet<>();
         }
-        TypeIDF(char key, int reference){
+        TypeIDF(String key, int reference){
             this.references = new HashSet<>();
             this.key = key;
             references.add(reference);
         }
-        char key;
+        String key;
         Set<Integer> references;
     }
     
-    public void add(char value, int reference, Map tempMap){
+    public void add(String value, int reference, Map tempMap){
         boolean exists = false;
         for (TypeIDF var : values) {
-            if(var.key == value){
+            
+            //System.out.println(" Isso -> "+value+", está ->  "+var.key+" ? "+(var.key.equals(value)));
+            if( var.key.equals(value) ){
                 var.references.add(reference);
                 exists = true;
+             
                 for ( Integer ref : var.references ) {
                    if (ref != reference) {
-                        tempMap.add(ref);
+                        tempMap.add(ref, value );
                    }
                 }
                 
             }
+
         }
         
         if(exists == false){

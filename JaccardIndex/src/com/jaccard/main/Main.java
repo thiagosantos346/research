@@ -6,7 +6,7 @@ import java.io.*;
 public class Main {
 	
 	public static WordList myset = new WordList(0.1);
-	
+
 	public static void fileReader(String fileName) throws IOException {
 		InputStream inStream = new FileInputStream(fileName);
 		InputStreamReader reStream = new InputStreamReader(inStream);
@@ -21,8 +21,11 @@ public class Main {
 				for(int i = 0; i < strSplited.length; ++i ){
 					myset.add(strSplited[i]);
 				}
+				
 			}
 			
+			
+
 		}while(str != null);
 		buffer.close();
 	}
@@ -30,6 +33,7 @@ public class Main {
 	public static void main(String[] args) throws IOException {
 		
 		fileReader("src/com/jaccard/main/wordlist.txt");
+
 
 	}
 
